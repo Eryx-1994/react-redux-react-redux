@@ -2,17 +2,25 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { add, del, asyncAdd } from '../../store/action/count_action.js'
 import './Home.scss'
+// import {test} from '../../utils/api.js'
+import axios from 'axios'
 class Home extends Component {
-
+    componentDidMount() {
+        // test().then(res=>{
+        //     console.log(res,'@')
+        // })
+        axios.get('http://localhost:4000/api/test').then(res => {
+            console.log(res)
+        })
+    }
     render() {
         const { count } = this.props
         const add = () => {
             this.props.add(1)
         }
-        const del = ()=> {
+        const del = () => {
             this.props.del(1)
         }
-        console.log(this.props)
         //通过解构赋值得到相应的属性里面的值
         //在这里Home是UI组件(展示组件)其属性是其外面的容器组件中的state是通过react-redux中的connect操作之后传递过来的
         return (
