@@ -2,15 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { add, del, asyncAdd } from '../../store/action/count_action.js'
 import './Home.scss'
-// import {test} from '../../utils/api.js'
-import axios from 'axios'
+import { test } from '../../utils/api.js'
 class Home extends Component {
     componentDidMount() {
-        // test().then(res=>{
-        //     console.log(res,'@')
-        // })
-        axios.get('http://localhost:4000/api/test').then(res => {
-            console.log(res)
+        test().then(res => {
+            console.log(res, '@')
         })
     }
     render() {

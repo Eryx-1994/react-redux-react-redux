@@ -24,7 +24,7 @@ request.interceptors.request.use(
 // Axios response 拦截器
 request.interceptors.response.use(
 	response => {
-		return response.data
+		return response
 	},
 	error => {
 		console.log(error,"err")
